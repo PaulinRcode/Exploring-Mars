@@ -1,7 +1,9 @@
 package br.com.exploringmars.view;
 
+import br.com.exploringmars.bean.SondaBean;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -61,11 +63,19 @@ public class ExploringMarsView extends JFrame implements ActionListener {
         add(p2, BorderLayout.SOUTH);
     }
 
-    public void posicionarN1() {
+    public void posicionarN1(TextField tf2) {
+        SondaBean sondaBean = new SondaBean();
+
+        sondaBean.posicionarN1(tf2);
+        SondaBean.validaDados();
         abrirMalhaPlanalto();
     }
 
-    public void posicionarN2() {
+    public void posicionarN2(TextField tf4) {
+        SondaBean sondaBean = new SondaBean();
+
+        sondaBean.posicionarN2(tf4);
+        SondaBean.validaDados();
     }
 
     public void explorar() {
