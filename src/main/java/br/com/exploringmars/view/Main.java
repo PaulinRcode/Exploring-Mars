@@ -5,9 +5,9 @@ import javax.swing.JFrame;
 public class Main extends JFrame {
 
     public static void main(String[] args) {
-        ExploringMarsIHM exploringMarsIHM = new ExploringMarsIHM("Explorando Marte", 700, 700);
+        ExploringMarsView exploringMarsView = new ExploringMarsView("Explorando Marte", 700, 700);
 
-        exploringMarsIHM.setVisible(true);
+        exploringMarsView.setVisible(true);
     }
 
 }
