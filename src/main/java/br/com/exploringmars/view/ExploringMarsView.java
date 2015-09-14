@@ -1,9 +1,9 @@
 package br.com.exploringmars.view;
 
+import br.com.exploringmars.bean.MalhaBean;
 import br.com.exploringmars.bean.SondaBean;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -63,37 +63,53 @@ public class ExploringMarsView extends JFrame implements ActionListener {
         add(p2, BorderLayout.SOUTH);
     }
 
-    public void posicionarN1(TextField tf2) {
+    public void posicionarN1(JTextField tf2, JTextField tf1) {
+        abrirMalhaPlanalto(tf1);
+        
         SondaBean sondaBean = new SondaBean();
-
         sondaBean.posicionarN1(tf2);
-        SondaBean.validaDados();
-        abrirMalhaPlanalto();
+        
+        SondaBean.validaDados();        
     }
 
-    public void posicionarN2(TextField tf4) {
+    public void posicionarN2(JTextField tf4) {
         SondaBean sondaBean = new SondaBean();
-
         sondaBean.posicionarN2(tf4);
+        
         SondaBean.validaDados();
     }
 
-    public void explorar() {
+    public void explorar(JTextField tf3, JTextField tf5) {
+        MalhaBean malhaBean = new MalhaBean();
+        malhaBean.explorar(tf3, tf5);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnExplorar) {
-            abrirMalhaPlanalto();
+            explorar(tf3, tf5);
+        }
+        
+        if (e.getSource() == btnPosicionarN1) {
+            posicionarN1(tf2, tf1);
+        }
+        
+        if (e.getSource() == btnPosicionarN2) {
+            posicionarN2(tf4);
         }
     }
 
-    private void abrirMalhaPlanalto() {
+    private void abrirMalhaPlanalto(JTextField tf1) {
         JFrame exploringMars = new JFrame("Explorando Marte");
         exploringMars.setSize(700, 700);
         exploringMars.setVisible(true);
         exploringMars.setLayout(new BorderLayout());
+        exploringMars.setResizable(false);
         exploringMars.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        MalhaBean malhaBean = new MalhaBean();    
+        malhaBean.carregarCenario();        
+        
     }
 
 }
