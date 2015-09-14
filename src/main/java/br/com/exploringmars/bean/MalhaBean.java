@@ -1,22 +1,27 @@
 package br.com.exploringmars.bean;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import br.com.exploringmars.bo.MalhaBO;
+import java.util.List;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Paulinho
  */
-public class MalhaBean implements ActionListener {
+public class MalhaBean {
 
-    public MalhaBean(JButton btnExplorar) {
-        btnExplorar.addActionListener(this);
+    public void carregarCenario() {
+        
+        
+
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void explorar(JTextField tf3, JTextField tf5) {
+        String instrucaoSondaI = tf3.getText();
+        String instrucaoSondaII = tf5.getText();
+
+        MalhaBO malhaBO = new MalhaBO();
+        malhaBO.explorar(instrucaoSondaI, instrucaoSondaII);
+
     }
-    
 }
